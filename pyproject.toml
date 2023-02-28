@@ -6,7 +6,7 @@ authors = ["Kasper Fromm Pedersen <kasperf@cs.aau.dk>"]
 packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
-python = ">=3.7,<4.0.0"
+python = ">=3.7,<3.12"
 tomli = "2.0.*"
 typer = { extras = ["all"], version = "0.7.*"}
 xmltodict = "0.13.*"
@@ -16,6 +16,7 @@ tctool = "src.main:app"
 
 [tool.poetry.group.dev.dependencies]
 black = ">=23.1.0"
+pyinstaller = "5.8.*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0", "setuptools"]
