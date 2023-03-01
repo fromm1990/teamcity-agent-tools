@@ -3,7 +3,7 @@ from sys import platform
 from zipfile import ZipFile
 
 import PyInstaller.__main__
-import tomllib
+import tomli
 
 ROOT = Path(__file__).parent
 PY_INSTALLER_BUILD_DIR = ROOT.joinpath("build")
@@ -42,8 +42,8 @@ elif platform == "darwin":
     raise NotImplementedError("OS X is not supported yet")
 
 
-pyproject = tomllib.loads(ROOT.joinpath("pyproject.toml").read_text())
+pyproject = tomli.loads(ROOT.joinpath("pyproject.toml").read_text())
 version = pyproject["tool"]["poetry"]["version"]
-with ZipFile(DIST_DIR.joinpath(f"{version}_{platform}_tctool.zip"), mode="w") as zip_file:
+with ZipFile(DIST_DIR.joinpath(f"tctool_{platform}_{version}.zip"), mode="w") as zip_file:
     zip_file.write(PY_INSTALLER_DIST_DIR.joinpath(EXECUTABLE), f"lib/{EXECUTABLE}")
     zip_file.writestr("teamcity-plugin.xml", descriptor)

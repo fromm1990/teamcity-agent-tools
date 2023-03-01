@@ -3,7 +3,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any
 
-import tomllib
+import tomli
 import xmltodict
 from typer import Argument, Typer
 
@@ -43,7 +43,7 @@ def query(
     elif format == FileFormat.XML:
         result = xmltodict.parse(file.read_text(encoding="utf-8-sig"))
     elif format == FileFormat.TOML:
-        result = tomllib.loads(file.read_text())
+        result = tomli.loads(file.read_text())
     else:
         raise ValueError("Invalid format")
 
