@@ -1,3 +1,2 @@
 # teamcity-agent-tools
-
-https://plugins.jetbrains.com/docs/teamcity/plugins-packaging.html#Plugin+Dependencies
+This is a very basic tool to query XML, toml, and json files for version numbers, package names, etc.
